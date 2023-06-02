@@ -1,0 +1,62 @@
+<!-- it's a template file, 
+use to avoid repition task also to embed 
+or write javascript code if it is not possible to write on server page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO✍</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav><a href="/list">Home</a>
+        <form action="/newList" method="post">
+            <input type="text" name="createdList" value="" placeholder="Create & search list ✍">
+            <button type="submit" >submit</button>    
+        </form> 
+    </nav>
+    </header>
+   
+
+
+ <h1> <%=keyHead%> </h1>
+<main>
+    
+    <section class="box">
+   
+    <% listTitle.forEach((element)=>
+       { %> 
+            <form action="/delete" method="post">
+                    <fieldset class="item">
+                        <input type="checkbox" name="checkBox" value="<%=element._id%>" onchange="this.form.submit()">
+                      
+                       <p><%=element.name%> </p>
+                 
+                    <input type="hidden" name="listName" value = "<%=keyHead%>"></input>
+                    </fieldset>
+            </form>
+     <%   }
+        ) %>
+
+    </section>
+
+<section >
+
+<form   action="/list" method="post">
+
+    <fieldset class="item" >
+        <input   type="text" name="itemNew" placeholder="Type your task" autocomplete="off">
+        <button type="submit" name="list" value = "<%=keyHead%>" >+</button>
+    </fieldset>
+
+</form>
+</section>
+
+</main>
+</body>
+</html>
+
