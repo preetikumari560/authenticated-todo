@@ -14,13 +14,13 @@ or write javascript code if it is not possible to write on server page -->
 <body>
     <header>
         <nav><a href="/list">Home</a>
-        <form action="/newList" method="post">
+        <form action="/newList/<%=userId%>" method="post">
             <input type="text" name="createdList" value="" placeholder="Create & search list ✍">
             <button type="submit" >submit</button>    
         </form> 
     </nav>
     </header>
-   
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
 
 
  <h1> <%=keyHead%> </h1>
